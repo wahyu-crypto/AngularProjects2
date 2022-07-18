@@ -3,10 +3,10 @@
   <p>Ingin pesan berapa banyak ?</p>
   <mat-form-field appearance="fill">
     <mat-label>Qty</mat-label>
-    <input matInput [(ngModel)] = 'data.price'>
+    <input matInput>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.price" cdkFocusInitial>Ok</button>
+  <button mat-raised-button color="primary" (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data.price" cdkFocusInitial>OK</button>
 </div>

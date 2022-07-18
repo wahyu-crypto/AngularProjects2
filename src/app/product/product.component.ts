@@ -16,7 +16,6 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.postData.getProducts().subscribe((result: DataProduct)=>{
       this.dataProduct = result
-      console.log(this.dataProduct);
     })
   }
 

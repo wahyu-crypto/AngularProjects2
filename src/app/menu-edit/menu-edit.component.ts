@@ -15,7 +15,6 @@ export class MenuEditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.data);
   }
 
   onNoClick() {

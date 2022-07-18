@@ -25,7 +25,6 @@ export class OrderListComponent implements OnInit {
       price: salesMenu.price
     }
     const dialogRef = this.dialog.open(MenuEditComponent, {
-      width: '250px',
       disableClose: false,
       data
     })
