@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Menu, DataMenu, MenuEditData } from '../menu/menu.model';
+import { Order } from '../order/order.model';
 
 @Component({
   selector: 'app-menu-edit',
@@ -11,7 +11,7 @@ export class MenuEditComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<MenuEditComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Menu
+    @Inject(MAT_DIALOG_DATA) public data: Order
   ) { }
 
   ngOnInit(): void {
@@ -19,5 +19,15 @@ export class MenuEditComponent implements OnInit {
 
   onNoClick() {
     this.dialogRef.close();
+  }
+
+  onEditMenu(qty: any, redirect = false) {
+    return {
+      menuID: this.data.menuID,
+      menuShortName: this.data.menuShortName,
+      price: this.data.price,
+      qty: qty,
+      redirect
+    }
   }
 }

@@ -6,6 +6,7 @@ import { ChangeVispurComponent } from '../change-vispur/change-vispur.component'
 import { DataMenu } from '../menu/menu.model';
 import { DataTable, Table } from '../table/table.model';
 import { VisitPurpose } from '../visit-purpose/visit-purpose.model';
+import { Order } from './order.model';
 import { OrderService } from './order.service';
 
 @Component({
@@ -16,9 +17,10 @@ import { OrderService } from './order.service';
 export class OrderComponent implements OnInit {
   @Input() table!: Table;
   eventClick: boolean = false;
-  selectedMenu!: DataMenu;
+  selectedMenu!: Order;
   selectedVispur!: any;
   selectedTable!: any;
+  counterQty = 0
 
   constructor(
     private orderService: OrderService,
@@ -36,7 +38,13 @@ export class OrderComponent implements OnInit {
   }
 
   onClickItem(menu: any) {
-    this.selectedMenu = menu;
+    this.counterQty += 1;
+    this.selectedMenu = {
+      menuID: menu.menuID,
+      menuShortName: menu.menuShortName,
+      price: menu.price,
+      qty: this.counterQty
+    }
   }
 
   onSelectedVispur(vispur: any) {

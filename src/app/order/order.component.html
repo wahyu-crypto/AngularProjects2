@@ -1,8 +1,9 @@
 <nav class="navbar">
   <div class="container-fluid">
-    <button mat-raised-button color="primary" style="height: 50px;">
+    <button mat-raised-button color="primary" 
+    style="height: 50px;"
+    (click)="onChangeTable()">
       <span style="font-size: 1rem;" 
-      (click)="onChangeTable()"
       *ngIf="selectedTable">
         Table : {{ selectedTable }}
       </span>
@@ -25,8 +26,6 @@
   <div class="d-flex flex-column" style="flex: 50; margin-right: 10px;">
     <mat-card class="menu-item">
       <app-menu class="menu-container"
-      itemColumn="4"
-      itemRow="4"
       (clickItem)="onClickItem($event)"
       ></app-menu>
     </mat-card>
@@ -35,10 +34,10 @@
     <mat-card class="d-flex flex-column flex-grow-1">
       <div class="d-flex table-header">
         <div i18n style="width: 100px;">Qty</div>
-        <div i18n class="flex-grow-1">Menu</div>
+        <div i18n style="width: 100px;">Menu</div>
         <div i18n class="flex-grow-1">Price</div>
       </div>
-      <div class="d-flex table-cell hover">
+      <div class="d-flex table-cell">
         <app-order-list 
           [salesMenu]="selectedMenu">
         </app-order-list>
