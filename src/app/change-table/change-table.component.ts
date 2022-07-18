@@ -11,7 +11,7 @@ import { TableService } from '../table/table.service';
 export class ChangeTableComponent implements OnInit {
   
   dataTable!: DataTable
-  selectedTable!: DataTable
+  selectedTable!: Table
 
   constructor(
     public dialogRef: MatDialogRef<ChangeTableComponent>,
@@ -20,9 +20,6 @@ export class ChangeTableComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.tableService.getTable().subscribe((result: DataTable) => {
-      this.dataTable = result
-    })
   }
 
   onNoClick() {

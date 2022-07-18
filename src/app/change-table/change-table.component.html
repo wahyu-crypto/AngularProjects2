@@ -1,15 +1,16 @@
 <h3 mat-dialog-title style="text-align: center;">Table : {{ data.tableName}}</h3>
+<h3 mat-dialog-title>Change Table To : 
+  <span *ngIf="!selectedTable">
+    Select Table
+  </span>
+  <span *ngIf="selectedTable">
+    {{ selectedTable.tableName }}
+  </span>
+</h3>
 <div mat-dialog-content>
-  <div class="d-flex" style="flex: 50;">
-    <mat-card class="d-flex flex-grow-1" style="height: 200px;">
-      <span *ngFor="let item of dataTable.table" class="btn-container">
-        <button mat-raised-button color="primary" style="height: 50px; width: 50px; margin: 10px;"
-          (click)="onClickTable(item)">
-          {{ item.tableName }} <br>
-        </button>
-      </span>
-    </mat-card>
-</div>
+  <app-grid-move-table
+  (clickTable)="onClickTable($event)"
+  ></app-grid-move-table>
 </div>
 <div mat-dialog-actions style="float: right">
   <button mat-raised-button color="primary" (click)="onNoClick()">Cancel</button>

@@ -5,6 +5,7 @@ import { TableModule } from '../table/table.module';
 import { FormsModule } from '@angular/forms';
 import { MaterialExampleModule } from 'src/material.module';
 import { TableComponent } from '../table/table.component';
+import { GridMoveTableModule } from '../grid-move-table/grid-move-table.module';
 
 
 
@@ -15,6 +16,7 @@ import { TableComponent } from '../table/table.component';
   imports: [
     CommonModule,
     TableModule,
+    GridMoveTableModule,
     FormsModule,
     MaterialExampleModule,
   ],
