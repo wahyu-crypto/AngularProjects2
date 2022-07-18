@@ -1,8 +1,8 @@
 export interface DataProduct {
-    limit: number;
     products: Product[];
-    skip: number;
     total: number;
+    skip: number;
+    limit: number;
 }
 
 export interface Product {

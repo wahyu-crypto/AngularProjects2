@@ -1,0 +1,15 @@
+<!-- <mat-selection-list #shoes>
+    <mat-list-option *ngFor="let menus of salesMenu">
+      {{salesMenu}}
+    </mat-list-option>
+</mat-selection-list> -->
+
+<div class="d-flex hover" *ngIf="salesMenu">
+  <div class="d-flex flex-column">
+    <span
+    (click)="onEditOrder(salesMenu)">{{ salesMenu.menuShortName }}</span>
+  </div>
+  <div class="d-flex flex-column align-item-end" style="margin-left: 5px;">
+    <span>{{ salesMenu.price }}</span>
+  </div>
+</div>

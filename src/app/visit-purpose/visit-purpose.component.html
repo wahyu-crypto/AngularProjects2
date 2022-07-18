@@ -1,0 +1,13 @@
+<div class="d-flex">
+  <mat-card class="d-flex" style="height: 200px;">
+    <span *ngFor="let item of dataVispur.visitpurpose;" class="btn-container">
+      <button mat-raised-button
+      color="primary"
+      [ngStyle]="btnSelected"
+      style="height: 40px; width: 100px; margin: 5px; font-size: 8px;"
+      (click)="onClickVispur(item)">
+          {{ item.visitPurposeName }} <br>
+      </button>
+    </span>
+  </mat-card>
+</div>

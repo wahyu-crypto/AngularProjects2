@@ -1,0 +1,17 @@
+<h3 mat-dialog-title>Visit Purpose : 
+  <span *ngIf="!selectedVispur">
+    Select Visit Purpose
+  </span>
+  <span *ngIf="selectedVispur">
+    {{ selectedVispur.visitPurposeName }}
+  </span>
+</h3>
+<div mat-dialog-content>
+  <app-visit-purpose
+    (clickVispur)="onClickVispur($event)"
+  ></app-visit-purpose>
+</div>
+<div mat-dialog-actions style="float: right">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="onChangeVispur(true)" cdkFocusInitial>Change</button>
+</div>

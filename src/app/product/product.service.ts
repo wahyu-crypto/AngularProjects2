@@ -1,13 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
-import { DataProduct } from './products.model';
+import { DataProduct } from './product.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService {
-url="https://dummyjson.com/products"
+export class ProductService {
+  url = 'https://dummyjson.com/products';
+
   constructor(private http:HttpClient) { }
+
   getProducts()
   {
     return this.http.get<DataProduct>(this.url);

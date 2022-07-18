@@ -1,0 +1,18 @@
+<h3 mat-dialog-title style="text-align: center;">Table : {{ data.tableName}}</h3>
+<h3 mat-dialog-title>Visit Purpose : 
+  <span *ngIf="!selectedVispur">
+    Select Visit Purpose
+  </span>
+  <span *ngIf="selectedVispur">
+    {{ selectedVispur.visitPurposeName }}
+  </span>
+</h3>
+<div mat-dialog-content>
+  <app-visit-purpose
+    (clickVispur)="onClickVispur($event)"
+  ></app-visit-purpose>
+</div>
+<div mat-dialog-actions style="float: right">
+  <button mat-raised-button color="primary" (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="warning" [mat-dialog-close]="onGotoOrder(true)" cdkFocusInitial>Book & Order</button>
+</div>

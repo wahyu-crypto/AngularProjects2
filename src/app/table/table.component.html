@@ -1,0 +1,10 @@
+<div class="d-flex" style="flex: 50;">
+  <mat-card class="d-flex flex-grow-1" style="height: 500px;">
+  <span *ngFor="let item of dataTable.table; let i = index" class="btn-container">
+    <button mat-raised-button color="primary" style="height: 50px; width: 50px; margin: 10px;"
+      (click)="onClickTable(item)">
+      {{ item.tableName }} <br>
+    </button>
+  </span>
+  </mat-card>
+</div>

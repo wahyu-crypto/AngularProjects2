@@ -1,0 +1,270 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$AngularProjects2-primary: mat.define-palette(mat.$indigo-palette);
+$AngularProjects2-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$AngularProjects2-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$AngularProjects2-theme: mat.define-light-theme((
+  color: (
+    primary: $AngularProjects2-primary,
+    accent: $AngularProjects2-accent,
+    warn: $AngularProjects2-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($AngularProjects2-theme);
+
+// @import '~@angular/material/theming';
+// @include mat-core();
+
+// $custom-primary: mat-palette($mat-blue, A400);
+// $custom-accent: mat-palette($mat-pink);
+// $custom-warn: mat-palette($mat-deep-orange);
+
+// $custom-theme: mat-light-theme($custom-primary, $custom-accent, $custom-warn);
+
+// @include angular-material-theme($custom-theme);
+
+$font-color: #FFFFFF;
+// $primary: #007BFF;
+$primary: #3C8DBC;
+// $primary-active: #0069D9;
+$primary-active: #367FA9;
+$secondary: #EFEFEF;
+$secondary-active: #DEDEDE;
+// $warning: #FFC107;
+$warning: #F39C12;
+// $warning-active: #E0A800;
+$warning-active: #E08E0B;
+// $danger: #DC3545;
+$danger: #DD4B39;
+// $danger-active: #C82333;
+$danger-active: #D73925;
+// $success: #28A745;
+$success: #00A65A;
+// $success-active: #218838;
+$success-active: #008D4C;
+
+.text-contrast {
+  color: $font-color !important;
+}
+
+.bg-primary,
+.bg-warning,
+.bg-danger,
+.bg-success,
+.bg-primary .mat-cell,
+.bg-warning .mat-cell,
+.bg-danger .mat-cell,
+.bg-success .mat-cell,
+.mat-raised-button.mat-primary,
+.mat-raised-button.mat-warning,
+.mat-raised-button.mat-danger,
+.mat-raised-button.mat-success,
+.mat-flat-button.mat-primary,
+.mat-flat-button.mat-warning,
+.mat-flat-button.mat-danger,
+.mat-flat-button.mat-success {
+  color: $font-color !important;
+}
+
+.bg-primary,
+.btn-primary,
+.mat-checkbox-checked.mat-primary .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-primary .mat-checkbox-background,
+.mat-pseudo-checkbox-checked,
+.mat-toolbar.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-flat-button.mat-primary,
+.mat-radio-button.mat-primary .mat-radio-inner-circle,
+.mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-primary.mat-radio-checked .mat-radio-persistent-ripple,
+.mat-radio-button.mat-primary:active .mat-radio-persistent-ripple {
+  background-color: $primary !important;
+  border-color: $primary !important;
+}
+.mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
+  border-color: $primary !important;
+}
+
+.bg-primary.active,
+.btn-primary.active,
+.btn-primary:hover,
+.mat-toolbar .mat-button:hover,
+.mat-raised-button.mat-primary.active,
+.mat-raised-button.mat-primary:hover,
+.mat-flat-button.mat-primary.active,
+.mat-flat-button.mat-primary:hover {
+  background-color: $primary-active !important;
+  border-color: $primary-active !important;
+}
+
+.mat-button.mat-primary,
+.text-primary {
+  color: $primary !important;
+}
+
+.mat-toolbar .mat-button {
+  color: $font-color !important;
+}
+
+.bg-secondary {
+  background-color: $secondary !important;
+}
+
+.bg-secondary.active {
+  background-color: $secondary-active !important;
+}
+
+.bg-warning,
+.btn-warning,
+.mat-toolbar.mat-warning,
+.mat-raised-button.mat-warning,
+.mat-flat-button.mat-warning {
+  background-color: $warning !important;
+  border-color: $warning !important;
+}
+
+.btn-warning.active,
+.btn-warning:hover,
+.mat-button.mat-warning.active,
+.mat-raised-button.mat-warning.active,
+.mat-raised-button.mat-warning:hover,
+.mat-flat-button.mat-warning.active,
+.mat-flat-button.mat-warning:hover {
+  background-color: $warning-active !important;
+  border-color: $warning-active !important;
+}
+
+.mat-button.mat-warning,
+.text-warning {
+  color: $warning !important;
+}
+
+.bg-danger,
+.btn-danger,
+.mat-badge.danger>.mat-badge-content,
+.mat-toolbar.mat-danger,
+.mat-raised-button.mat-danger,
+.mat-flat-button.mat-danger {
+  background-color: $danger !important;
+  border-color: $danger !important;
+}
+
+.btn-danger.active,
+.btn-danger:hover,
+.mat-button.mat-danger.active,
+.mat-raised-button.mat-danger.active,
+.mat-raised-button.mat-danger:hover,
+.mat-flat-button.mat-danger.active,
+.mat-flat-button.mat-danger:hover {
+  background-color: $danger-active !important;
+  border-color: $danger-active !important;
+}
+
+.mat-button.mat-danger,
+.text-danger {
+  color: $danger !important;
+}
+
+.bg-success,
+.btn-success,
+.mat-toolbar.mat-success,
+.mat-raised-button.mat-success,
+.mat-flat-button.mat-success {
+  background-color: $success !important;
+  border-color: $success !important;
+}
+
+.btn-success.active,
+.btn-success:hover,
+.mat-button.mat-success.active,
+.mat-raised-button.mat-success.active,
+.mat-raised-button.mat-success:hover,
+.mat-flat-button.mat-success.active,
+.mat-flat-button.mat-success:hover {
+  background-color: $success-active !important;
+  border-color: $success-active !important;
+}
+
+.mat-button.mat-success,
+.text-success {
+  color: $success !important;
+}
+
+.mat-stroked-button.mat-primary,
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick,
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: $primary !important;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: $primary !important;
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: $primary !important;
+  stroke-width: 2px !important;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: $primary !important;
+}
+
+
+
+// Custom Conditional Theme
+.mat-stroked-button.mat-primary.active {
+  color: $font-color !important;
+  background-color: $primary-active;
+}
+
+.mat-flat-button[disabled],
+.mat-flat-button[disabled]:hover,
+.mat-raised-button[disabled],
+.mat-raised-button[disabled]:hover {
+  color: rgba(0, 0, 0, 0.26) !important;
+  background-color: rgba(0, 0, 0, .12) !important;
+}
+
+.mat-stroked-button[disabled],
+.mat-stroked-button[disabled]:hover {
+  color: rgba(0, 0, 0, .26) !important;
+}
+
+.mat-button[disabled],
+.mat-flat-button[disabled],
+.mat-raised-button[disabled],
+.mat-stroked-button[disabled] {
+  cursor: default !important;
+}
+
+.mat-checkbox-checked.mat-primary.mat-checkbox-disabled .mat-checkbox-background {
+  background-color: #B0B0B0 !important;
+}
+
+
+.simple-notification.info {
+  background: $primary-active !important;
+}
