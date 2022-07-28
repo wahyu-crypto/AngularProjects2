@@ -12,6 +12,6 @@
   ></app-visit-purpose>
 </div>
 <div mat-dialog-actions style="float: right">
-  <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="onChangeVispur(true)" cdkFocusInitial>Change</button>
+  <button mat-raised-button color="primary" (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="warning" [disabled]="disableButton()" [mat-dialog-close]="onChangeVispur(true)" cdkFocusInitial>Change</button>
 </div>

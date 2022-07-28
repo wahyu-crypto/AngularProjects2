@@ -16,8 +16,6 @@ export class OpenTableComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<OpenTableComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Table,
-    private router: Router,
-    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +36,13 @@ export class OpenTableComponent implements OnInit {
 
   onClickVispur(vispur: any) {
     this.selectedVispur = vispur
+  }
+
+  disabledButton() {
+    if (this.selectedVispur) {
+      return false
+    }
+    return true;
   }
 
 }

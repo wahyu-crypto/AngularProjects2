@@ -7,11 +7,21 @@ import { ProductComponent } from './product/product.component';
 import { TableComponent } from './table/table.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/table'},
-  { path: 'table', component: HeaderComponent },
-  { path: 'table/order', component: OrderComponent },
-  { path: 'product', component: ProductComponent},
-  { path: 'menu', component: MenuComponent},
+  // { path: '', pathMatch: 'full', redirectTo: '/table'},
+  // { path: 'table', component: HeaderComponent },
+  // { path: 'table/order', component: OrderComponent },
+  // { path: 'product', component: ProductComponent},
+  // { path: 'menu', component: MenuComponent},
+
+  { path: '', pathMatch: 'full', redirectTo: 'table'},
+  { 
+    path: '', component: HeaderComponent, children: [
+      { path: 'table', component: TableComponent },
+      { path: 'table/order', component: OrderComponent },
+      { path: 'product', component: ProductComponent},
+      { path: 'menu', component: MenuComponent},
+    ]
+  },
 ];
 
 @NgModule({

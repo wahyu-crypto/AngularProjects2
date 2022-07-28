@@ -43,4 +43,8 @@ export class OrderListComponent implements OnInit {
     })
   }
 
+  onRemoveOrder() {
+    
+  }
+
 }

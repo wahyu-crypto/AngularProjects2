@@ -25,22 +25,34 @@
 <div class="d-flex p-15">
   <div class="d-flex flex-column" style="flex: 50; margin-right: 10px;">
     <mat-card class="menu-item">
-      <app-menu class="menu-container"
-      (clickItem)="onClickItem($event)"
-      ></app-menu>
+      <div class="d-flex">
+        <app-menu class="menu-container"
+        (clickItem)="onClickItem($event)"
+        ></app-menu>
+      </div>
     </mat-card>
   </div>
   <div class="d-flex flex-column" style="flex: 40;">
     <mat-card class="d-flex flex-column flex-grow-1">
       <div class="d-flex table-header">
         <div i18n style="width: 100px;">Qty</div>
-        <div i18n style="width: 100px;">Menu</div>
+        <div i18n style="width: 150px;">Menu</div>
         <div i18n class="flex-grow-1">Price</div>
       </div>
-      <div class="d-flex table-cell">
-        <app-order-list 
+      <div class="d-flex table-cell"
+      [ngClass]="hoverMenuClass">
+        <app-order-list class="order-container"
           [salesMenu]="selectedMenu">
         </app-order-list>
+      </div>
+    </mat-card>
+    <mat-card>
+      <div class="d-flex table-header total-content">
+        <div i18n style="width: 200px;">Subtotal</div>
+        <div i18n class="flex-grow-1">GrandTotal</div>
+      </div>
+      <div class="d-flex table-cell">
+        
       </div>
     </mat-card>
   </div>

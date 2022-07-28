@@ -36,4 +36,11 @@ export class ChangeTableComponent implements OnInit {
       redirect
     }
   }
+
+  disableButton() {
+    if (this.selectedTable) {
+      return false;
+    }
+    return true;
+  }
 }

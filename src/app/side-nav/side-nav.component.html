@@ -1,0 +1,8 @@
+<div>
+    <button mat-raised-button (click)="onBurgerMenu()">
+        <a>Hide</a>
+    </button>
+</div>
+<div [ngClass]="{'hidden': expandMenu}">
+    <p>Side Nav</p>
+</div>

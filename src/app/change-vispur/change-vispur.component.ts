@@ -35,4 +35,11 @@ export class ChangeVispurComponent implements OnInit {
     }
   }
 
+  disableButton() {
+    if (this.selectedVispur) {
+      return false;
+    }
+    return true;
+  }
+
 }

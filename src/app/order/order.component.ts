@@ -21,6 +21,7 @@ export class OrderComponent implements OnInit {
   selectedVispur!: any;
   selectedTable!: any;
   counterQty = 0
+  hoverMenuClass!: string;
 
   constructor(
     private orderService: OrderService,
@@ -45,6 +46,11 @@ export class OrderComponent implements OnInit {
       price: menu.price,
       qty: this.counterQty
     }
+    this.hoverMenu();
+  }
+
+  hoverMenu() {
+    this.hoverMenuClass = 'order-list-content'
   }
 
   onSelectedVispur(vispur: any) {

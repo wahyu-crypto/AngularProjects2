@@ -1,0 +1,8 @@
+.navbar {
+    padding: 0px;
+    background-color: #222D32;
+}
+
+.navbar.expanded {
+    min-width: 230px;
+}

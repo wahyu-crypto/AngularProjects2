@@ -7,12 +7,16 @@ a {
     height: calc(100vh - 270px);
 }
 
-.table-cell {
-    padding-top: 15px;
-    height: 50px;
+.rder-container {
+    height: calc(100vh - 270px);
 }
 
-.table-cell:hover {
+.table-cell {
+    height: 60px;
+    line-height: 4;
+}
+
+.order-list-content:hover {
     background-color: rgb(238, 238, 238);
     cursor: pointer;
 }

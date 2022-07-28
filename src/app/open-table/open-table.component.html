@@ -14,5 +14,5 @@
 </div>
 <div mat-dialog-actions style="float: right">
   <button mat-raised-button color="primary" (click)="onNoClick()">Cancel</button>
-  <button mat-raised-button color="warning" [mat-dialog-close]="onGotoOrder(true)" cdkFocusInitial>Book & Order</button>
+  <button mat-raised-button color="warning" [disabled]="disabledButton()" [mat-dialog-close]="onGotoOrder(true)">Book & Order</button>
 </div>

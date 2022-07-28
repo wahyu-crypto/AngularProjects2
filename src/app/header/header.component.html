@@ -1,8 +1,25 @@
-<nav class="navbar">
-    <div class="container-fluid">
-      <a class="navbar-brand primary" style="color: grey;">
-        BUKAN POS
-      </a>
-    </div>
-</nav>
-<app-table></app-table>
+<div class="d-flex flex-column h-100">
+  <mat-drawer-container class="h-100" autosize>
+    <mat-drawer #drawer
+    mode="side"
+    class="navbar"
+    [ngClass]="{'hidden': expandMenu}"
+    style="min-width: 50px;">
+      <app-side-nav
+      [expandMenu]="expandMenu"
+      (toggleSidenav)="expandMenu = !expandMenu"
+      ></app-side-nav>
+    </mat-drawer>
+    <mat-drawer-content>
+      <mat-toolbar color="primary">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+        (click)="expandMenu = !expandMenu">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>BUKAN POS</span>
+        <span class="example-spacer"></span>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
