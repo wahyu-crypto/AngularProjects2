@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { DataTable, Table } from './table.model';
+import { TableSection } from './table.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,6 @@ export class TableService {
   ) { }
 
   getTable() {
-    return this.http.get<DataTable>(this.apiUrl);
+    return this.http.get<TableSection[]>(this.apiUrl);
   }
 }

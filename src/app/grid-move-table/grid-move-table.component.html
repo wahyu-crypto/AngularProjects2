@@ -1,10 +1,20 @@
 <div class="d-flex" style="flex: 50;">
-  <mat-card class="d-flex flex-grow-1" style="height: 200px;">
-    <span *ngFor="let item of dataTable.table" class="btn-container">
-      <button mat-raised-button color="primary" style="height: 50px; width: 50px; margin: 10px;"
-        (click)="onClickTable(item)">
-        {{ item.tableName }} <br>
-      </button>
-    </span>
+  <mat-card class="d-flex flex-column" style="height: 200px; width: 500px">
+    <div *ngIf="dataTable">
+      <span  *ngFor="let table of dataTable">
+        <button mat-raised-button color="primary" style="height: 50px; width: 100px; margin-right: 10px"
+        (click)="onSelectionTable(table)">
+          {{ table.tableSectionName }}
+        </button>
+      </span>
+    </div>
+    <mat-card style="margin-top: 20px">
+      <span *ngFor="let table of tableSection === dataTable[0].tableSectionID? dataTable[0].tables : dataTable[1].tables" class="btn-container">
+        <button mat-raised-button color="primary" style="height: 50px; width: 50px; margin: 10px;"
+          (click)="onClickTable(table)">
+          {{ table.tableName }} <br>
+        </button>
+      </span>
+    </mat-card>
   </mat-card>
 </div>

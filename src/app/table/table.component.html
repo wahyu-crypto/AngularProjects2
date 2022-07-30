@@ -1,17 +1,32 @@
 <div class="bg-light">
   <mat-card class="d-flex flex-column table-content">
-    <span>
-      <button mat-raised-button color="primary" style="height: 90px; width: 100px;">
-        DINE IN
-      </button>
-    </span>
-    <mat-card class="d-flex h-100" style="margin-top: 20px">
-      <span *ngFor="let item of dataTable.table; let i = index" class="btn-container">
-        <button mat-raised-button color="primary" style="height: 50px; width: 50px; margin: 10px;"
-          (click)="onClickTable(item)">
-          {{ item.tableName }} <br>
+    <div *ngIf="dataTable">
+      <span  *ngFor="let table of dataTable">
+        <button mat-raised-button color="primary" style="height: 90px; width: 100px; margin-right: 10px"
+        (click)="onSelectionTable(table)">
+          {{ table.tableSectionName }}
         </button>
       </span>
+    </div>
+    <div *ngIf="!dataTable">
+      <span  *ngFor="let table of dataTable">
+        <button mat-raised-button color="primary" style="height: 90px; width: 100px; margin-right: 10px">
+          DINE IN
+        </button>
+        <button mat-raised-button color="primary" style="height: 90px; width: 100px; margin-right: 10px">
+          TAKE AWAY
+        </button>
+      </span>
+    </div>
+    <mat-card class="d-flex h-100" style="margin-top: 20px">
+      <div *ngFor="let table of tableSection === dataTable[0].tableSectionID? dataTable[0].tables : dataTable[1].tables"
+      class="btn-container"
+      [ngStyle]="getTableLocation(table)">
+        <button mat-raised-button color="primary" style="height: 50px; width: 50px; margin: 10px;"
+          (click)="onClickTable(table)">
+          {{ table.tableName }} <br>
+        </button>
+      </div>
     </mat-card>
   </mat-card>
 </div>

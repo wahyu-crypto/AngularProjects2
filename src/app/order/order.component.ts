@@ -3,9 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChangeTableComponent } from '../change-table/change-table.component';
 import { ChangeVispurComponent } from '../change-vispur/change-vispur.component';
-import { DataMenu } from '../menu/menu.model';
-import { DataTable, Table } from '../table/table.model';
-import { VisitPurpose } from '../visit-purpose/visit-purpose.model';
+import { Table } from '../table/table.model';
 import { Order } from './order.model';
 import { OrderService } from './order.service';
 

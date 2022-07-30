@@ -1,5 +1,7 @@
-export interface DataTable {
-    table: Table[];
+export interface TableSection {
+    tableSectionID: number;
+    tableSectionName: string;
+    tables?: Table[];
 }
 
 export interface Table {
@@ -10,5 +12,4 @@ export interface Table {
     posY?: any;
     widthRes?: number;
     heightRes?: number;
-    stationID?: number;
 }

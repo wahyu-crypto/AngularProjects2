@@ -1,3 +1,4 @@
 {
-    "httpBaseUrl": "http://localhost:85/rest-api-yii2/web/v1/"
-}  
+  "httpBaseUrl": "http://localhost:85/rest-api-yii2/web/v1",
+  "webSocketUrl": "wss://dev7.esb.co.id/wss-self-order"
+}
