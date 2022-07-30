@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
+import { DataService } from '../services/data.service';
 import { DataVispur } from './visit-purpose.model';
-import { VisitPurposeService } from './visit-purpose.service';
 
 @Component({
   selector: 'app-visit-purpose',
@@ -10,22 +11,30 @@ import { VisitPurposeService } from './visit-purpose.service';
 export class VisitPurposeComponent implements OnInit {
   @Input() color!: string;
   @Output() clickVispur = new EventEmitter;
+  onDestroy$ = new Subject<void>();
   dataVispur!: DataVispur;
   btnSelected: any;
 
   constructor(
-    private postDataVispurt: VisitPurposeService
+    private dataService: DataService
   ) { }
 
   ngOnInit(): void {
-    this.postDataVispurt.getVispur().subscribe((result: DataVispur) => {
-      this.dataVispur = result;
+    this.dataService.vispur().pipe(
+      takeUntil(this.onDestroy$)
+    ).subscribe((data: DataVispur) => {
+      this.dataVispur = data
     })
   }
 
   onClickVispur(vispur: any) {
     localStorage.setItem("visitPurpose", vispur.visitPurposeName)
     this.clickVispur.emit(vispur);
+  }
+
+  ngOnDestroy() {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 
 }

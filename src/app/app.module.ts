@@ -8,7 +8,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MaterialExampleModule } from '../material.module';
-import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { FormsModule } from '@angular/forms';
 import { TableComponent } from './table/table.component';
 import { ChangeTableComponent } from './change-table/change-table.component';
@@ -50,7 +49,6 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     BrowserAnimationsModule,
     MatNativeDateModule,
     MaterialExampleModule,
-    MatCarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [

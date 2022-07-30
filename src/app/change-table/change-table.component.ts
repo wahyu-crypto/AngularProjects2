@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TableSection, Table } from '../table/table.model';
-import { TableService } from '../table/table.service';
 
 @Component({
   selector: 'app-change-table',
@@ -15,7 +14,6 @@ export class ChangeTableComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ChangeTableComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Table,
-    private tableService: TableService,
   ) { }
 
   ngOnInit(): void {

@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject, Output, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DataVispur, VisitPurpose } from '../visit-purpose/visit-purpose.model';
-import { VisitPurposeService } from '../visit-purpose/visit-purpose.service';
 
 @Component({
   selector: 'app-change-vispur',
@@ -14,7 +13,6 @@ export class ChangeVispurComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ChangeVispurComponent>,
     @Inject(MAT_DIALOG_DATA) public data: VisitPurpose,
-    private vispur: VisitPurposeService,
   ) { }
 
   ngOnInit(): void {

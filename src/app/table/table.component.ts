@@ -6,7 +6,6 @@ import { takeUntil } from 'rxjs/operators';
 import { OpenTableComponent } from '../open-table/open-table.component';
 import { DataService } from '../services/data.service';
 import { TableSection, Table } from './table.model';
-import { TableService } from './table.service';
 
 @Component({
   selector: 'app-table',
@@ -23,23 +22,15 @@ export class TableComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private postDataTable: TableService,
     private dataService: DataService,
     public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
-    // this.postDataTable.getTable().pipe(
-    //   takeUntil(this.onDestroy$)
-    // ).subscribe((data: TableSection[]) => {
-    //   this.dataTable = data
-    // })
-
-    this.dataService.getTable().pipe(
+    this.dataService.tables().pipe(
       takeUntil(this.onDestroy$)
     ).subscribe((data: TableSection[]) => {
       this.dataTable = data
-      console.log(data)
     });
   }
 

@@ -23,7 +23,8 @@ export class OrderListComponent implements OnInit {
     const data: Order = {
       menuID: salesMenu.menuID,
       menuShortName: salesMenu.menuShortName,
-      price: salesMenu.price
+      price: salesMenu.price,
+      qty: salesMenu.qty
     }
     const dialogRef = this.dialog.open(MenuEditComponent, {
       disableClose: false,

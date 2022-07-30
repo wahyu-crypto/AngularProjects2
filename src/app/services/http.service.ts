@@ -10,6 +10,7 @@ import { AppInitService } from './app-init.service';
   providedIn: 'root'
 })
 export class HttpService {
+  apiUrl = 'http://localhost:85/rest-api-yii2/web/v1';
 
   constructor(private appInitService: AppInitService,
     private httpClient: HttpClient,
@@ -21,7 +22,7 @@ export class HttpService {
    * @param body any
    * @param baseUrl string
    */
-  post<T>(url: string, body: {}, baseUrl = this.appInitService.appConfig.httpBaseUrl) {
+  post<T>(url: string, body: {}, baseUrl = this.apiUrl) {
     const newBody = {
       ...body,
       locale: this.locale
@@ -31,7 +32,7 @@ export class HttpService {
     });
   }
 
-  get<T>(url: string, baseUrl = this.appInitService.appConfig.httpBaseUrl) {
+  get<T>(url: string, baseUrl = this.apiUrl) {
     return this.httpClient.get<T>(`${baseUrl}${url}`);
   }
 

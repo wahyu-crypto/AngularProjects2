@@ -1,5 +1,6 @@
-<span *ngFor="let item of dataMenu.menu; let i = index" class="btn-container" [ngStyle]="btnContainerStyle">
-    <button mat-raised-button color="primary" style="height: 100px; width: 170px; margin: 5px;"
+<span *ngFor="let item of dataMenu.menu" class="btn-container" >
+    <button mat-raised-button color="primary"
+        [ngStyle]="btnContainerStyle"
         (click)="onClickItem(item)">
         {{ item.menuShortName }} <br>
         {{ item.price }}

@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
+import { DataService } from '../services/data.service';
 import { TableSection } from '../table/table.model';
-import { TableService } from '../table/table.service';
 
 @Component({
   selector: 'app-grid-move-table',
@@ -9,17 +10,20 @@ import { TableService } from '../table/table.service';
 })
 export class GridMoveTableComponent implements OnInit {
   @Output() clickTable = new EventEmitter
+  onDestroy$ = new Subject<void>();
   dataTable!: TableSection[]
   tableSection!: any;
 
   constructor(
-    private tableService: TableService
+    private dataService: DataService
   ) { }
 
   ngOnInit(): void {
-    this.tableService.getTable().subscribe((result: TableSection[]) => {
-      this.dataTable = result
-    })
+    this.dataService.tables().pipe(
+      takeUntil(this.onDestroy$)
+    ).subscribe((data: TableSection[]) => {
+      this.dataTable = data
+    });
   }
 
   onClickTable(item: any) {
@@ -28,6 +32,11 @@ export class GridMoveTableComponent implements OnInit {
 
   onSelectionTable(tableSection: any) {
     this.tableSection = tableSection.tableSectionID
+  }
+
+  ngOnDestroy() {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 
 }

@@ -4,22 +4,41 @@ import { map } from 'rxjs/operators';
 import { HttpService } from './http.service';
 import { TableSection } from '../table/table.model';
 import { HttpClient } from '@angular/common/http';
+import { DataMenu } from '../menu/menu.model';
+import { DataVispur } from '../visit-purpose/visit-purpose.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
-  tableSection$ = new BehaviorSubject<TableSection[]>(null as any);
+export class DataService { 
 
   constructor(private http:HttpService) { }
 
-  getTable() {
-    return this.http.get<TableSection[]>('/table/table')
+  tables() {
+    return this.http.post<TableSection[]>('/table/table', '')
     .pipe(map(
       (data: TableSection[]) => {
-          this.tableSection$.next(data);
           return data
       }
     ));
+  }
+
+
+  menus() {
+    return this.http.post<DataMenu>('/menu/menu', '')
+    .pipe(map(
+      (data: DataMenu) => {
+        return data
+      }
+    ))
+  }
+
+  vispur() {
+    return this.http.post<DataVispur>('/visitpurpose/vispur', '')
+    .pipe(map(
+      (data: DataVispur) => {
+        return data
+      }
+    ))
   }
 }
